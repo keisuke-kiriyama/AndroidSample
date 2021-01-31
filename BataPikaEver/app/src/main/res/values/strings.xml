@@ -1,0 +1,5 @@
+<resources>
+    <string name="app_name">Bata Pika Ever</string>
+    <string name="start_text">スタート</string>
+    <string name="stop_text">ストップ</string>
+</resources>
