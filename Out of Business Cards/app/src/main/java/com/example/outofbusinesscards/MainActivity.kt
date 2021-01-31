@@ -2,8 +2,11 @@ package com.example.outofbusinesscards
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.view.Menu
+import android.view.MenuItem
 import androidx.preference.PreferenceManager
 import kotlinx.android.synthetic.main.activity_main.*
+import android.content.Intent
 
 class MainActivity : AppCompatActivity() {
 
@@ -22,10 +25,25 @@ class MainActivity : AppCompatActivity() {
             val fax = getString("fax", "'")
 
             companyText.text = company
-            postalText.text = company
-            addressText.text = company
-            telText.text = company
-            faxText.text = company
+            postalText.text = postal
+            addressText.text = address
+            telText.text = tel
+            faxText.text = fax
         }
+    }
+
+    override fun onCreateOptionsMenu(menu: Menu?): Boolean {
+        menuInflater.inflate(R.menu.main, menu)
+        return true
+    }
+
+    override fun onOptionsItemSelected(item: MenuItem): Boolean {
+        when (item?.itemId) {
+            R.id.edit -> {
+                val intent = Intent(this, EditActivity::class.java)
+                startActivity(intent)
+            }
+        }
+        return super.onOptionsItemSelected(item)
     }
 }
